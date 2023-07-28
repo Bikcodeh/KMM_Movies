@@ -2,6 +2,7 @@ package com.bikcodeh.kmmmovies.android.home.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -55,18 +56,23 @@ fun MovieListItem(
                         .fillMaxSize()
                         .clip(RoundedCornerShape(bottomStart = 2.dp, bottomEnd = 2.dp))
                 )
-                Surface(
-                    color = Color.Black.copy(alpha = 0.6f),
-                    modifier = modifier
-                        .size(50.dp)
-                        .clip(CircleShape)
-                        .padding(12.dp)
+                Column(
+                    modifier = Modifier.size(50.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.play_button),
-                        contentDescription = null,
-                        modifier = modifier.align(Alignment.Center)
-                    )
+                    Surface(
+                        color = Color.Black.copy(alpha = 0.6f),
+                        modifier = modifier
+                            .fillMaxSize(),
+                        shape = CircleShape
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.play_button),
+                            contentDescription = null,
+                            modifier = modifier.padding(12.dp)
+                        )
+                    }
                 }
             }
 
